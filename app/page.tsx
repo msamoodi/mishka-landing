@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar"
 import CategoryRow from "@/components/CategoryRow"
 import ScreensRow from "@/components/ScreensRow"
 
-const APP_URL = "https://mishkaapp.com/app"
+const APP_URL = "https://app.mishkaapp.com"
 
 const WHO_WE_ARE_FEATURES = [
   {
@@ -217,6 +217,8 @@ export default function LandingPage() {
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href={APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-14 w-56 items-center justify-center gap-3 rounded-full bg-black px-6 text-white transition-transform hover:scale-105"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -229,6 +231,8 @@ export default function LandingPage() {
             </a>
             <a
               href={APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-14 w-56 items-center justify-center gap-3 rounded-full bg-black px-6 text-white transition-transform hover:scale-105"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

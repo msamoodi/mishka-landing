@@ -1,4 +1,4 @@
-const APP_URL = "https://mishkaapp.com/app"
+const APP_URL = "https://app.mishkaapp.com"
 
 export default function Navbar() {
   return (
@@ -17,6 +17,8 @@ export default function Navbar() {
         </a>
         <a
           href={APP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex h-10 items-center gap-2 rounded-full bg-white px-4 text-sm font-semibold text-[#5A2BAA] transition-transform hover:scale-105 sm:px-5 min-[1340px]:h-14 min-[1340px]:px-6 min-[1340px]:text-base"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
