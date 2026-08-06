@@ -3,7 +3,8 @@ import Navbar from "@/components/Navbar"
 import CategoryRow from "@/components/CategoryRow"
 import ScreensRow from "@/components/ScreensRow"
 
-const APP_URL = "https://app.mishkaapp.com"
+const EARLY_ACCESS_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeMYLJafbt3OfP6j27nDodYDfJQ2GmDqehb2lY1NgiLDfcE2w/viewform?usp=dialog"
 
 const WHO_WE_ARE_FEATURES = [
   {
@@ -216,7 +217,7 @@ export default function LandingPage() {
           <h2 className="text-3xl font-bold text-white sm:text-4xl">Build Skills. Shape Your Future.</h2>
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href={APP_URL}
+              href={EARLY_ACCESS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-14 w-56 items-center justify-center gap-3 rounded-full bg-black px-6 text-white transition-transform hover:scale-105"
@@ -230,7 +231,7 @@ export default function LandingPage() {
               </span>
             </a>
             <a
-              href={APP_URL}
+              href={EARLY_ACCESS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-14 w-56 items-center justify-center gap-3 rounded-full bg-black px-6 text-white transition-transform hover:scale-105"
