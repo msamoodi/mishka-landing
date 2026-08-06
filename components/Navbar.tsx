@@ -1,4 +1,5 @@
-const APP_URL = "https://app.mishkaapp.com"
+const EARLY_ACCESS_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeMYLJafbt3OfP6j27nDodYDfJQ2GmDqehb2lY1NgiLDfcE2w/viewform?usp=dialog"
 
 export default function Navbar() {
   return (
@@ -16,15 +17,12 @@ export default function Navbar() {
           Contact
         </a>
         <a
-          href={APP_URL}
+          href={EARLY_ACCESS_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="flex h-10 items-center gap-2 rounded-full bg-white px-4 text-sm font-semibold text-[#5A2BAA] transition-transform hover:scale-105 sm:px-5 min-[1340px]:h-14 min-[1340px]:px-6 min-[1340px]:text-base"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Download App
+          Early Access
         </a>
       </div>
     </div>
