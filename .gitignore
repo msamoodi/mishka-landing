@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# generated audit reports (seo-geo-aeo skill output)
+/reports/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

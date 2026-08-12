@@ -1,15 +1,13 @@
 import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 import "./globals.css"
-
-const TITLE = "Mishka — AI-Guided Courses for Your Digital Career"
-const DESCRIPTION =
-  "Build job-ready skills in product design, UX research, branding, and marketing with AI-guided, bite-sized courses from Mishka. Learn by doing. Earn certificates."
+import { DESCRIPTION, KEYWORDS, SITE_NAME, SITE_URL, TITLE } from "@/lib/seo"
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  metadataBase: new URL("https://mishkaapp.com"),
+  keywords: KEYWORDS,
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
   },
@@ -24,8 +22,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: "https://mishkaapp.com",
-    siteName: "Mishka",
+    url: SITE_URL,
+    siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
   },
@@ -63,8 +61,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
-              name: "Mishka",
-              url: "https://mishkaapp.com",
+              name: SITE_NAME,
+              url: SITE_URL,
               description: DESCRIPTION,
             }),
           }}
