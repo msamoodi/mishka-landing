@@ -2,6 +2,7 @@ import Image from "next/image"
 import Navbar from "@/components/Navbar"
 import CategoryRow from "@/components/CategoryRow"
 import ScreensRow from "@/components/ScreensRow"
+import TrackedLink from "@/components/TrackedLink"
 
 const EARLY_ACCESS_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSeMYLJafbt3OfP6j27nDodYDfJQ2GmDqehb2lY1NgiLDfcE2w/viewform?usp=dialog"
@@ -216,7 +217,8 @@ export default function LandingPage() {
         >
           <h2 className="text-3xl font-bold text-white sm:text-4xl">Build Skills. Shape Your Future.</h2>
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <TrackedLink
+              clarityEvent="footer_google_play_click"
               href={EARLY_ACCESS_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -229,8 +231,9 @@ export default function LandingPage() {
                 <span className="block text-[10px] text-white/70">GET IT ON</span>
                 <span className="block text-sm font-semibold">Google Play</span>
               </span>
-            </a>
-            <a
+            </TrackedLink>
+            <TrackedLink
+              clarityEvent="footer_app_store_click"
               href={EARLY_ACCESS_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -243,7 +246,7 @@ export default function LandingPage() {
                 <span className="block text-[10px] text-white/70">DOWNLOAD ON THE</span>
                 <span className="block text-sm font-semibold">App Store</span>
               </span>
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>

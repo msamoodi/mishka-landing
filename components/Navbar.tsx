@@ -1,3 +1,5 @@
+import TrackedLink from "./TrackedLink"
+
 const EARLY_ACCESS_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSeMYLJafbt3OfP6j27nDodYDfJQ2GmDqehb2lY1NgiLDfcE2w/viewform?usp=dialog"
 
@@ -10,20 +12,22 @@ export default function Navbar() {
       </a>
 
       <div className="flex items-center gap-2 sm:gap-3">
-        <a
+        <TrackedLink
+          clarityEvent="nav_contact_click"
           href="mailto:info@mishkaapp.com"
           className="hidden h-10 items-center rounded-full border border-white/10 bg-white/10 px-5 text-sm text-white backdrop-blur-md transition-colors hover:bg-white/20 sm:flex min-[1340px]:h-14 min-[1340px]:px-6 min-[1340px]:text-base"
         >
           Contact
-        </a>
-        <a
+        </TrackedLink>
+        <TrackedLink
+          clarityEvent="nav_early_access_click"
           href={EARLY_ACCESS_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="flex h-10 cursor-pointer items-center gap-2 rounded-full bg-white px-4 text-sm font-semibold text-[#5A2BAA] transition-transform hover:scale-105 sm:px-5 min-[1340px]:h-14 min-[1340px]:px-6 min-[1340px]:text-base"
         >
           Early Access
-        </a>
+        </TrackedLink>
       </div>
     </div>
   )
