@@ -10,15 +10,15 @@ export const DESCRIPTION =
 // every file that needs SEO metadata reads from here instead of hardcoding its own copy.
 export const KEYWORDS = [
   "Mishka app",
-  "AI learning platform",
-  "digital skills courses",
   "AI-guided courses",
+  "digital skills courses",
+  "job-ready skills course",
+  "AI for product design",
   "product design course online",
   "UX research course",
-  "branding design course",
+  "branding course",
   "digital marketing course",
-  "data and AI course",
+  "AI literacy course",
+  "microlearning app",
   "career development app",
-  "online skill certification",
-  "learn product design",
 ]
