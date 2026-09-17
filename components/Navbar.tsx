@@ -1,7 +1,5 @@
 import TrackedLink from "./TrackedLink"
-
-const EARLY_ACCESS_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeMYLJafbt3OfP6j27nDodYDfJQ2GmDqehb2lY1NgiLDfcE2w/viewform?usp=dialog"
+import { EARLY_ACCESS_URL } from "@/lib/links"
 
 export default function Navbar() {
   return (

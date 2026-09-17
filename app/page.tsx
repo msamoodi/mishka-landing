@@ -3,9 +3,7 @@ import Navbar from "@/components/Navbar"
 import CategoryRow from "@/components/CategoryRow"
 import ScreensRow from "@/components/ScreensRow"
 import TrackedLink from "@/components/TrackedLink"
-
-const EARLY_ACCESS_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeMYLJafbt3OfP6j27nDodYDfJQ2GmDqehb2lY1NgiLDfcE2w/viewform?usp=dialog"
+import { EARLY_ACCESS_URL } from "@/lib/links"
 
 const WHO_WE_ARE_FEATURES = [
   {
@@ -116,13 +114,13 @@ export default function LandingPage() {
                 <img
                   src="/images/001.png"
                   alt="The Mishka app running on a phone"
-                  className="absolute bottom-[-25px] right-0 h-auto w-[520px] max-w-none"
+                  className="pointer-events-none absolute bottom-[-25px] right-0 h-auto w-[520px] max-w-none"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/mishka-cat-jumping.png"
                   alt="Mishka, the grumpy Persian cat mascot, leaping"
-                  className="absolute bottom-[150px] right-[70px] z-10 h-[534px] w-[534px] max-w-none"
+                  className="pointer-events-none absolute bottom-[150px] right-[70px] z-10 h-[534px] w-[534px] max-w-none"
                 />
               </div>
             </div>
