@@ -1,1 +1,1 @@
-export const EARLY_ACCESS_URL = "https://mishkaapp.com/app"
+export const EARLY_ACCESS_URL = "https://app.mishkaapp.com"
