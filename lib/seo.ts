@@ -19,6 +19,7 @@ export const KEYWORDS = [
   "UX research course",
   "AI for UX research",
   "branding course",
+  "AI branding course",
   "digital marketing course",
   "AI marketing course",
   "data and AI course",
