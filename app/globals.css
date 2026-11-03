@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-* { box-sizing: border-box; }
+@theme {
+  --breakpoint-desk: 56.3125rem; /* 901px: above this the desktop nav and two-column layouts apply */
 
-:root {
-  --gradient-product-design: linear-gradient(135deg, #7C3AED, #4F46E5);
-  --gradient-user-research: linear-gradient(135deg, #0891B2, #06B6D4);
-  --gradient-branding-design: linear-gradient(135deg, #EA580C, #EC4899);
-  --gradient-digital-marketing: linear-gradient(135deg, #16A34A, #84CC16);
-  --gradient-data-ai: linear-gradient(135deg, #2563EB, #7C3AED);
+  --color-ink: #0E1033;
+  --color-ink-soft: #2A2C52;
+  --color-muted: #4A4C6E;
+  --color-subtle: #5A5C7A;
+  --color-canvas: #F6F7FB;
+  --color-mist: #EEF0FA;
+  --color-line: #E2E4EF;
+  --color-field: #D5D8E8;
+  --color-line-strong: #C9CCE0;
+  --color-input: #B9BDD6;
+  --color-brand: #4B3FE0;
+  --color-brand-dark: #3A2FC4;
+  --color-brand-tint: #ECEAFF;
+  --color-lavender: #E9E6FF;
+  --color-butter: #FFF1C9;
+  --color-blush: #FFE3DA;
+  --color-logo: #F4573A;
+  --color-coral: #FF8A70;
+  --color-gold: #FDD56B;
+  --color-periwinkle: #B8B4FF;
+  --color-on-dark: #D6D4F2;
+  --color-on-dark-soft: #E6E2FF;
+  --color-line-dark: #5C5F8F;
 }
 
+* { box-sizing: border-box; }
+
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #0A0A24;
-  color: #14101f;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--color-canvas);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 html { scroll-behavior: smooth; }
 
-@keyframes gradient-pan {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 3px;
 }
+
+summary { list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }

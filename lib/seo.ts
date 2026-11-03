@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+
 export const SITE_URL = "https://mishkaapp.com"
 export const SITE_NAME = "Mishka"
 
@@ -25,3 +27,19 @@ export const KEYWORDS = [
   "data and AI course",
   "microlearning app",
 ]
+
+export const SUBPAGES = ["/solutions", "/employers", "/pricing", "/about", "/contact"]
+
+// Setting openGraph or twitter on a page replaces the parent's, including the root image.
+const OG_IMAGE = "/opengraph-image"
+
+export function pageMetadata(path: string, name: string, description: string): Metadata {
+  const title = `${name} — ${SITE_NAME}`
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: { title, description, url: `${SITE_URL}${path}`, siteName: SITE_NAME, type: "website", locale: "en_US", images: [OG_IMAGE] },
+    twitter: { card: "summary_large_image", title, description, images: [OG_IMAGE] },
+  }
+}

@@ -1,7 +1,11 @@
 import type { Metadata, Viewport } from "next"
+import { Inter } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
+import Navbar from "@/components/Navbar"
 import { DESCRIPTION, KEYWORDS, SITE_NAME, SITE_URL, TITLE } from "@/lib/seo"
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -37,13 +41,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0A0A24",
+  themeColor: "#FFFFFF",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <body>
+        <Navbar />
         {children}
         <Script id="clarity-script" strategy="afterInteractive">
           {`

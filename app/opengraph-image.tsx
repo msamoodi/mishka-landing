@@ -14,7 +14,7 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #5A2BAA 0%, #FF5C01 100%)",
+          background: "#0E1033",
         }}
       >
         <div style={{ fontSize: 60, fontWeight: 700, color: "white" }}>Mishka</div>

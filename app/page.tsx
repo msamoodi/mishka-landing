@@ -1,158 +1,110 @@
 import Image from "next/image"
-import Navbar from "@/components/Navbar"
-import CategoryRow from "@/components/CategoryRow"
-import ScreensRow from "@/components/ScreensRow"
+import Link from "next/link"
+import Footer from "@/components/Footer"
+import ProductCarousel from "@/components/ProductCarousel"
 import TrackedLink from "@/components/TrackedLink"
+import { Button, CheckIcon, CONTAINER, Eyebrow, IllustrativeBadge } from "@/components/ui"
 import { EARLY_ACCESS_URL } from "@/lib/links"
 
-const WHO_WE_ARE_FEATURES = [
+const APPROACH = [
   {
-    icon: "/images/icons/structured-learning-paths.svg",
-    title: "Structured Learning Paths",
-    description: "Follow guided learning paths built around your goals and experience, so you always know what to learn next.",
+    title: "Structured learning paths",
+    text: "Guided paths based on your goals and experience, so every lesson leads somewhere.",
   },
   {
-    icon: "/images/icons/mishka-ai.svg",
-    title: "Learn with Mishka AI",
-    description: "Get instant explanations, personalised guidance, and support whenever you need it — right inside every lesson.",
+    title: "Guidance from Mishka AI",
+    text: "Explanations, personalised plans and progress coaching, trained on our course content and on your own journey.",
   },
   {
-    icon: "/images/icons/learn-by-doing.svg",
-    title: "Learn by Doing",
-    description: "Complete practical exercises and projects that help you apply your knowledge to real-world scenarios.",
+    title: "Practice on real projects",
+    text: "Apply what you learn to a real-world brief, with scored, written feedback and the chance to revise.",
   },
   {
-    icon: "/images/icons/certificates.svg",
-    title: "Earn Meaningful Certificates",
-    description: "Show what you can do with certificates earned through completed coursework and practical assessments.",
+    title: "Certificates that mean something",
+    text: "Earned through a reviewed project and a final test across the whole path.",
   },
 ]
 
-const CATEGORIES = [
-  {
-    label: "User Research",
-    gradient: "var(--gradient-product-design)",
-    description: "Discover user needs and turn research into meaningful product decisions.",
-  },
-  {
-    label: "Product Design",
-    gradient: "var(--gradient-product-design)",
-    description: "Learn how to design intuitive digital products that solve real user problems.",
-  },
-  {
-    label: "Branding & Design",
-    gradient: "var(--gradient-product-design)",
-    description: "Build memorable brands through strategy, identity, storytelling and design.",
-  },
-  {
-    label: "Digital Marketing",
-    gradient: "var(--gradient-product-design)",
-    description: "Learn to grow audiences and drive business results through digital channels.",
-  },
-  {
-    label: "Data & AI Literacy",
-    gradient: "var(--gradient-product-design)",
-    description: "Learn to grow audiences and drive business results through digital channels.",
-  },
+const STEPS = [
+  { title: "Courses and quizzes", text: "Structured lessons with automatic progress tracking." },
+  { title: "Practice project", text: "A real brief, reviewed and scored within hours." },
+  { title: "Final test and certificate", text: "A test across the whole path, then your Mishka certificate." },
 ]
 
-const APP_SCREENS = [
-  { image: "/images/screen-1.png", alt: "The AI Marketing Playbook course detail screen" },
-  { image: "/images/screen-2.png", alt: "Your personalised home feed" },
-  { image: "/images/screen-3.png", alt: "Ask Mishka AI anytime" },
-  { image: "/images/screen-4.png", alt: "Explore 44+ courses" },
-  { image: "/images/screen-5.png", alt: "Your profile and progress" },
-  { image: "/images/screen-6.png", alt: "Your personalised learning path" },
+const TRACKS = [
+  { title: "Product Design", text: "Shape digital products people enjoy using, from research to polished screens.", bg: "bg-lavender" },
+  { title: "UX Research", text: "Understand users, run studies and turn what you learn into decisions.", bg: "bg-butter" },
+  { title: "Design & Branding", text: "Build visual identities and brand systems that hold together.", bg: "bg-blush" },
+  { title: "Digital Marketing", text: "Plan campaigns, grow audiences and measure what works.", bg: "bg-lavender" },
+  { title: "Data & AI Literacy", text: "Read data, work with AI tools and make confident, informed choices.", bg: "bg-butter" },
 ]
+
+const STORE_LINKS = [
+  { eyebrow: "GET IT ON", label: "Google Play", clarityEvent: "footer_google_play_click" },
+  { eyebrow: "DOWNLOAD ON THE", label: "App Store", clarityEvent: "footer_app_store_click" },
+]
+
+const H2 = "text-[30px] leading-[1.04] font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(34px,3.8vw,52px)]"
 
 export default function LandingPage() {
   return (
-    <div id="top" className="min-h-screen bg-[#0A0A24]">
+    <main className="font-semibold">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="flex justify-center px-4 pt-4 sm:px-6 sm:pt-6 min-[1340px]:px-0 min-[1340px]:pt-0">
-        <div
-          className="relative min-h-screen w-full max-w-[1336px] overflow-hidden rounded-[24px] min-[1340px]:min-h-0 min-[1340px]:aspect-[1336/1200] min-[1340px]:rounded-[32px]"
-          style={{ background: "linear-gradient(to bottom left, #5A2BAA 0%, #FF5C01 70%)" }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/background.svg"
-            alt=""
-            aria-hidden
-            className="pointer-events-none absolute left-0 top-0 h-full w-full select-none object-cover"
-          />
-
-          <div className="relative flex h-full flex-col px-5 pb-10 sm:px-8 min-[1340px]:px-[60px] min-[1340px]:pb-[60px]">
-            <Navbar />
-
-            <div className="relative mt-10 flex flex-1 flex-col justify-center gap-10 min-[1340px]:mt-0 min-[1340px]:block">
-              <div className="min-[1340px]:absolute min-[1340px]:left-0 min-[1340px]:top-1/2 min-[1340px]:w-1/2 min-[1340px]:-translate-y-1/2 min-[1340px]:pr-6">
-                <h1 className="text-[36px] font-bold leading-[1.15] text-white sm:text-[44px] min-[1340px]:text-[76px]!">
-                  Build Your Digital Career with{" "}
-                  <span
-                    style={{
-                      background: "linear-gradient(to right, #5A2BAA, #DA51CC, #5A2BAA)",
-                      backgroundSize: "200% auto",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                      animation: "gradient-pan 6s ease-in-out infinite",
-                    }}
-                  >
-                    Mishka
-                  </span>
-                  .
-                </h1>
-                <p className="mt-5 max-w-md text-base leading-relaxed text-white/80">
-                  Learn practical, job-ready skills with bite-sized courses, AI guidance, and structured learning paths designed to help you grow with confidence.
-                </p>
-              </div>
-
-              {/* Desktop: exact-spec absolute composition, sized relative to the full 1336px box */}
-              <div className="relative mt-4 hidden w-full min-[1340px]:mt-0 min-[1340px]:absolute min-[1340px]:inset-0 min-[1340px]:block">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/001.png"
-                  alt="The Mishka app running on a phone"
-                  className="pointer-events-none absolute bottom-[-25px] right-0 h-auto w-[520px] max-w-none"
-                />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/mishka-cat-jumping.png"
-                  alt="Mishka, the grumpy Persian cat mascot, leaping"
-                  className="pointer-events-none absolute bottom-[150px] right-[70px] z-10 h-[534px] w-[534px] max-w-none"
-                />
-              </div>
+      <section className="bg-white">
+        <div className={`${CONTAINER} grid grid-cols-1 items-center gap-6 pt-10 pb-6 desk:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] desk:gap-8 desk:pt-[72px] desk:pb-16`}>
+          <div className="flex flex-col gap-7">
+            <Eyebrow rule>AI-guided career learning</Eyebrow>
+            <h1 className="text-[clamp(36px,10.5vw,44px)] leading-[1.06] font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(40px,5vw,68px)]">
+              Build your digital career, <span className="text-brand">with proof.</span>
+            </h1>
+            <p className="max-w-[540px] text-[17px] leading-[1.6] text-muted desk:text-xl">
+              Mishka is an AI career coach. Structured learning paths, guidance inside every lesson and real projects that end in a certificate you can stand behind.
+            </p>
+            <div className="mt-1 flex flex-wrap items-center gap-3.5">
+              <Button href={EARLY_ACCESS_URL} clarityEvent="hero_early_access_click">
+                Start with 3 days free
+              </Button>
+              <Button href="#product" variant="outline">
+                See the product
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E1033" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </Button>
             </div>
+          </div>
+
+          <div className="flex justify-center desk:mx-auto desk:w-full desk:max-w-[635px]">
+            <Image
+              src="/images/hero-app-screens.png"
+              alt="Two Mishka app screens: a chat with Mishka AI recommending a course, and the home screen with learning path cards"
+              width={1421}
+              height={1394}
+              sizes="(min-width: 901px) 700px, 100vw"
+              priority
+              className="-mx-5 block h-auto w-[calc(100%+40px)] max-w-[520px] desk:mx-0 desk:-mr-6 desk:w-[calc(100%+48px)] desk:max-w-[760px]"
+            />
           </div>
         </div>
       </section>
 
-      {/* ── Who We Are: intro ────────────────────────────────────────────── */}
-      <section id="about" className="bg-[#0f0d1a] px-6 py-[50px] sm:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-12">
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#a3a9ff]">Who We Are</p>
-            <h2 className="text-[48px] font-semibold leading-tight text-white">
-              Learn the skills that move your career forward.
-            </h2>
-            <p className="mt-6 leading-relaxed text-white/60">
-              Mishka is an AI-powered learning platform designed to help you build practical, job-ready skills. Whether you&apos;re starting your career or growing into your next role, every learning path combines expert lessons, hands-on practice, and personalised guidance from Mishka AI.
-            </p>
-            <p className="mt-4 leading-relaxed text-white/60">
-              Learn with confidence, practise what you learn, and earn certificates through real work, not just multiple-choice quizzes.
+      {/* ── Approach ─────────────────────────────────────────────────────── */}
+      <section id="approach">
+        <div className={`${CONTAINER} grid grid-cols-1 items-start gap-10 py-16 desk:grid-cols-2 desk:gap-[72px] desk:py-32`}>
+          <div className="flex flex-col gap-6">
+            <Eyebrow>Our approach</Eyebrow>
+            <h2 className={H2}>A coach, not a course library.</h2>
+            <p className="max-w-[460px] text-[19px] leading-[1.6] text-muted">
+              Most platforms hand you a catalogue. Mishka learns your level and goals, builds your path, guides you through it and verifies your skill with real work, not multiple-choice quizzes.
             </p>
           </div>
 
-          <div className="flex flex-col divide-y divide-white/10 rounded-2xl border border-white/10 px-6">
-            {WHO_WE_ARE_FEATURES.map((feature) => (
-              <div key={feature.title} className="flex items-start gap-5 py-[50px]">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/5">
-                  <Image src={feature.icon} alt="" width={28} height={28} aria-hidden />
-                </div>
-                <div>
-                  <h3 className="text-[24px] font-semibold text-white">{feature.title}</h3>
-                  <p className="mt-1.5 text-base leading-relaxed text-white/55">{feature.description}</p>
+          <div className="flex flex-col border-t border-line-strong">
+            {APPROACH.map((item, i) => (
+              <div key={item.title} className="grid grid-cols-[40px_1fr] gap-3 border-b border-line-strong py-6 desk:grid-cols-[56px_1fr] desk:gap-4 desk:py-8">
+                <p className="pt-1.5 text-sm font-semibold text-brand">{String(i + 1).padStart(2, "0")}</p>
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="text-[26px] font-semibold tracking-[-0.02em]">{item.title}</h3>
+                  <p className="text-[17px] leading-[1.6] text-muted">{item.text}</p>
                 </div>
               </div>
             ))}
@@ -160,103 +112,197 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── Built for Future Professionals ──────────────────────────────── */}
-      <section id="industries" className="overflow-x-clip bg-[#0f0d1a] px-6 pb-24 sm:px-8 sm:pb-28">
-        <div className="relative mx-auto max-w-7xl rounded-[2.5rem] bg-[#ECEAF6] py-14 sm:py-16 lg:min-h-[910px]">
-          <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[470px] w-[470px] sm:block">
-            <Image
-              src="/images/mishka-cat-sitting.png"
-              alt="Mishka, the grumpy Persian cat mascot, sitting"
-              width={946}
-              height={946}
-              loading="eager"
-              className="h-full w-full object-contain object-bottom"
-            />
-          </div>
-
-          <div className="w-full px-6 sm:w-[70%] sm:px-12">
-            <h2 className="text-[46px] font-semibold leading-tight text-[#14101f]">
-              Built for Future Professionals
-            </h2>
-            <p className="mt-6 leading-relaxed text-[#5b5870]">
-              Choose from career-focused learning paths across multiple disciplines, with courses designed for every level from beginners building foundations to professionals advancing their expertise.
+      {/* ── Product ──────────────────────────────────────────────────────── */}
+      <section id="product" className="border-y border-line bg-white">
+        <div className={`${CONTAINER} flex flex-col gap-9 py-16 desk:gap-14 desk:py-28`}>
+          <div className="flex flex-wrap items-end justify-between gap-8">
+            <div className="flex max-w-[720px] flex-col gap-5">
+              <Eyebrow>The product</Eyebrow>
+              <h2 className={H2}>From first lesson to certificate, in one place.</h2>
+            </div>
+            <p className="max-w-[420px] text-lg leading-[1.6] text-muted">
+              Available on Android, iOS and the web. Your progress follows you across devices.
             </p>
           </div>
 
-          <CategoryRow categories={CATEGORIES} />
+          <ProductCarousel />
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 desk:grid-cols-4 desk:gap-0">
+            {STEPS.map((step, i) => (
+              <div key={step.title} className="flex flex-col gap-2 border-t-2 border-ink pt-6 desk:pr-6">
+                <p className="text-[13px] font-semibold tracking-[1.4px] text-brand">STEP {i + 1}</p>
+                <p className="text-lg font-semibold">{step.title}</p>
+                <p className="text-[15px] leading-[1.55] text-muted">{step.text}</p>
+              </div>
+            ))}
+            <div className="flex flex-col gap-2 border-t-2 border-line-strong pt-6">
+              <p className="text-[13px] font-semibold tracking-[1.4px] text-subtle">STEP 4 · COMING NEXT</p>
+              <p className="text-lg font-semibold">Matched to a vacancy</p>
+              <p className="text-[15px] leading-[1.55] text-muted">Roles that fit your verified skills and profile.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ── Everything You Need to Keep Learning ────────────────────────── */}
-      <section id="technology" className="overflow-x-clip bg-[#0f0d1a] px-6 pb-24 sm:px-8 sm:pb-28">
-        <div
-          className="relative mx-auto max-w-7xl rounded-[2.5rem] py-16 sm:py-20"
-          style={{ background: "linear-gradient(135deg, #6C4CF1 0%, #4C3FE0 55%, #3F4FE8 100%)" }}
-        >
-          <div className="mx-auto max-w-2xl px-6 text-center sm:px-12">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">How It Works</p>
-            <h2 className="text-[46px] font-bold leading-tight text-white">
-              Everything You Need to Keep Learning
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl leading-relaxed text-white/70">
-              From your first lesson to earning your certificate, Mishka provides the tools and support to help you learn with confidence.
-            </p>
+      {/* ── Learning paths ───────────────────────────────────────────────── */}
+      <section id="paths">
+        <div className={`${CONTAINER} flex flex-col gap-9 py-16 desk:gap-14 desk:pt-32 desk:pb-28`}>
+          <div className="flex flex-wrap items-end justify-between gap-8">
+            <div className="flex max-w-[720px] flex-col gap-5">
+              <Eyebrow>Built for future professionals</Eyebrow>
+              <h2 className={H2}>Career tracks for every level.</h2>
+            </div>
+            <Button href="/solutions#paths" variant="outline" size="sm" fluid={false} className="!min-h-[50px]">
+              Browse all learning paths
+            </Button>
           </div>
 
-          <ScreensRow screens={APP_SCREENS} />
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 desk:grid-cols-3">
+            {TRACKS.map((track, i) => (
+              <Link
+                key={track.title}
+                href="/solutions#paths"
+                className={`flex flex-col justify-between gap-9 rounded-[26px] border border-transparent p-8 transition-colors hover:border-brand desk:gap-14 ${track.bg}`}
+              >
+                <p className="text-[13px] font-semibold tracking-[1.4px] text-subtle">TRACK 0{i + 1}</p>
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="text-[30px] font-semibold tracking-[-0.02em]">{track.title}</h3>
+                  <p className="text-base leading-[1.55] text-muted">{track.text}</p>
+                </div>
+              </Link>
+            ))}
+            <div className="flex flex-col justify-between gap-9 rounded-[26px] bg-ink p-8 text-white desk:gap-14">
+              <p className="text-[13px] font-semibold tracking-[1.4px] text-periwinkle">NEXT</p>
+              <div className="flex flex-col gap-2.5">
+                <h3 className="text-[30px] font-semibold tracking-[-0.02em]">More tracks coming</h3>
+                <p className="text-base leading-[1.55] text-on-dark">Product &amp; Growth, Business, Finance, Communication &amp; Leadership, Technology &amp; AI.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Employers ────────────────────────────────────────────────────── */}
+      <section id="employers" className="bg-ink text-white">
+        <div className={`${CONTAINER} grid grid-cols-1 items-center gap-10 py-16 desk:grid-cols-2 desk:gap-[72px] desk:py-32`}>
+          <div className="flex flex-col gap-7">
+            <Eyebrow rule dark>Coming next · Profiles &amp; job matching</Eyebrow>
+            <h2 className="text-[34px] leading-none font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(38px,4.4vw,60px)]">
+              Learn it. Prove it. <span className="text-coral">Get hired.</span>
+            </h2>
+            <p className="max-w-[520px] text-[19px] leading-[1.65] text-on-dark">
+              Mishka will match your professional profile and verified learning path to the vacancies that fit you. Employers meet pre-qualified talent, backed by proof rather than keywords.
+            </p>
+            <div className="flex flex-wrap gap-3.5">
+              <Button href="mailto:info@mishkaapp.com" variant="light">Hiring? Talk to us</Button>
+              <Button href={EARLY_ACCESS_URL} variant="outlineDark" clarityEvent="employers_join_learner_click">Join as a learner</Button>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6 rounded-[28px] bg-white p-6 text-ink desk:p-9">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <IllustrativeBadge />
+              <p className="text-sm text-subtle">Posted directly on Mishka</p>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <p className="text-[30px] leading-[1.1] font-semibold tracking-[-0.03em]">Junior Product Designer</p>
+              <p className="text-base text-muted">Helsinki-area employer</p>
+            </div>
+            <div className="flex items-center gap-5 border-y border-line py-5">
+              <p className="text-[60px] leading-none font-semibold text-brand">92%</p>
+              <p className="text-[17px] leading-[1.3] font-semibold">
+                fit for your profile,
+                <br />
+                <span className="font-semibold text-muted">based on skills you have proven</span>
+              </p>
+            </div>
+            <ul className="flex flex-col gap-3 text-base">
+              {["Product Design path: 4 of 4 courses", "Practice project: 9/10", "Final test: 100%"].map((item) => (
+                <li key={item} className="flex items-center gap-3">
+                  <CheckIcon className="text-brand" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="rounded-[40px] bg-brand p-[15px] text-center text-base font-semibold text-white">Apply with your Mishka profile</p>
+          </div>
         </div>
       </section>
 
       {/* ── Final CTA ────────────────────────────────────────────────────── */}
-      <section id="resources" className="px-6 pb-24 sm:px-8">
-        <div
-          className="mx-auto max-w-7xl rounded-[2.5rem] px-6 py-16 text-center sm:py-20"
-          style={{ background: "linear-gradient(135deg, #676BEB 0%, #4C3FE0 100%)" }}
-        >
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">Build Skills. Shape Your Future.</h2>
-          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <TrackedLink
-              clarityEvent="footer_google_play_click"
-              href={EARLY_ACCESS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-14 w-56 items-center justify-center gap-3 rounded-full bg-black px-6 text-white transition-transform hover:scale-105"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.6 3 21.09 3 20.5ZM16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12ZM20.16 10.81C20.5 11.08 20.75 11.5 20.75 12C20.75 12.5 20.53 12.9 20.18 13.18L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81ZM6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z" />
-              </svg>
-              <span className="text-left leading-tight">
-                <span className="block text-[10px] text-white/70">GET IT ON</span>
-                <span className="block text-sm font-semibold">Google Play</span>
-              </span>
-            </TrackedLink>
-            <TrackedLink
-              clarityEvent="footer_app_store_click"
-              href={EARLY_ACCESS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-14 w-56 items-center justify-center gap-3 rounded-full bg-black px-6 text-white transition-transform hover:scale-105"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8.9-.15 1.75-.83 3.09-.85 1.6.03 2.81.67 3.61 1.95-3.3 2.03-2.63 6.44.29 7.79-.61 1.61-1.4 3.2-2.07 4.28zM12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.28-2.06 4.42-3.74 4.25z" />
-              </svg>
-              <span className="text-left leading-tight">
-                <span className="block text-[10px] text-white/70">DOWNLOAD ON THE</span>
-                <span className="block text-sm font-semibold">App Store</span>
-              </span>
-            </TrackedLink>
+      <section id="get-started">
+        <div className={`${CONTAINER} py-16 desk:py-28`}>
+          <div className="grid grid-cols-1 items-center gap-8 rounded-[32px] border border-line bg-white px-[22px] py-8 desk:grid-cols-2 desk:gap-14 desk:rounded-[40px] desk:p-16">
+            <div className="flex flex-col gap-6">
+              <h2 className="text-[34px] leading-none font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(38px,4.2vw,56px)]">
+                Build skills. <span className="text-brand">Shape your future.</span>
+              </h2>
+              <p className="max-w-[480px] text-[19px] leading-[1.6] text-muted">
+                Try every learning path, the AI coach and the practice projects with 3 days of full access. Your first 3 days are on us.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                {STORE_LINKS.map((store) => (
+                  <TrackedLink
+                    key={store.label}
+                    clarityEvent={store.clarityEvent}
+                    href={EARLY_ACCESS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-14 items-center gap-3 rounded-2xl bg-ink px-6 text-white transition-colors hover:bg-brand-dark"
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <path d="M12 4v11M7 11l5 5 5-5M5 20h14" />
+                    </svg>
+                    <span className="flex flex-col leading-[1.15]">
+                      <span className="text-[11px] font-semibold tracking-[1px]">{store.eyebrow}</span>
+                      <span className="text-[17px] font-semibold">{store.label}</span>
+                    </span>
+                  </TrackedLink>
+                ))}
+                <TrackedLink
+                  clarityEvent="footer_web_click"
+                  href={EARLY_ACCESS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-14 items-center rounded-2xl border border-line-strong px-6 text-[17px] font-semibold transition-colors hover:border-ink"
+                >
+                  Open on the web
+                </TrackedLink>
+              </div>
+            </div>
+            <div className="flex justify-center rounded-[28px] bg-mist p-8">
+              <Image
+                src="/images/mishka-cat-monitor.jpg"
+                alt="Mishka the cat sitting on top of a retro computer monitor"
+                width={1093}
+                height={1504}
+                sizes="380px"
+                className="block h-auto w-full max-w-[380px] rounded-2xl object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Footer ───────────────────────────────────────────────────────── */}
-      <footer id="contact" className="border-t border-white/10 bg-[#0f0d1a] px-6 py-10 sm:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 text-center">
-          <p className="text-sm text-white/40">
-            © {new Date().getFullYear()} Mishka. All rights reserved. Built with ❤️ for lifelong learners.
-          </p>
-        </div>
-      </footer>
-    </div>
+      <Footer
+        primary={{
+          title: "Product",
+          links: [
+            { label: "Solutions", href: "/solutions" },
+            { label: "How it works", href: "#product" },
+            { label: "Learning paths", href: "#paths" },
+            { label: "Pricing", href: "/pricing" },
+          ],
+        }}
+        company={{
+          title: "Company",
+          links: [
+            { label: "About", href: "/about" },
+            { label: "For employers", href: "/employers" },
+            { label: "Contact", href: "/contact" },
+          ],
+        }}
+      />
+    </main>
   )
 }
