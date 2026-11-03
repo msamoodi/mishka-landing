@@ -1,9 +1,9 @@
 import Image from "next/image"
-import Link from "next/link"
 import Footer from "@/components/Footer"
+import JobMatchCard from "@/components/JobMatchCard"
 import ProductCarousel from "@/components/ProductCarousel"
 import TrackedLink from "@/components/TrackedLink"
-import { Button, CheckIcon, CONTAINER, Eyebrow, IllustrativeBadge } from "@/components/ui"
+import { Button, CONTAINER, Eyebrow } from "@/components/ui"
 import { EARLY_ACCESS_URL } from "@/lib/links"
 
 const APPROACH = [
@@ -48,7 +48,7 @@ const H2 = "text-[30px] leading-[1.04] font-semibold tracking-[-0.03em] text-bal
 
 export default function LandingPage() {
   return (
-    <main className="font-semibold">
+    <main>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="bg-white">
         <div className={`${CONTAINER} grid grid-cols-1 items-center gap-6 pt-10 pb-6 desk:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] desk:gap-8 desk:pt-[72px] desk:pb-16`}>
@@ -62,7 +62,7 @@ export default function LandingPage() {
             </p>
             <div className="mt-1 flex flex-wrap items-center gap-3.5">
               <Button href={EARLY_ACCESS_URL} clarityEvent="hero_early_access_click">
-                Start with 3 days free
+                Early Access
               </Button>
               <Button href="#product" variant="outline">
                 See the product
@@ -90,7 +90,7 @@ export default function LandingPage() {
       {/* ── Approach ─────────────────────────────────────────────────────── */}
       <section id="approach">
         <div className={`${CONTAINER} grid grid-cols-1 items-start gap-10 py-16 desk:grid-cols-2 desk:gap-[72px] desk:py-32`}>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 desk:sticky desk:top-12">
             <Eyebrow>Our approach</Eyebrow>
             <h2 className={H2}>A coach, not a course library.</h2>
             <p className="max-w-[460px] text-[19px] leading-[1.6] text-muted">
@@ -147,29 +147,20 @@ export default function LandingPage() {
       {/* ── Learning paths ───────────────────────────────────────────────── */}
       <section id="paths">
         <div className={`${CONTAINER} flex flex-col gap-9 py-16 desk:gap-14 desk:pt-32 desk:pb-28`}>
-          <div className="flex flex-wrap items-end justify-between gap-8">
-            <div className="flex max-w-[720px] flex-col gap-5">
-              <Eyebrow>Built for future professionals</Eyebrow>
-              <h2 className={H2}>Career tracks for every level.</h2>
-            </div>
-            <Button href="/solutions#paths" variant="outline" size="sm" fluid={false} className="!min-h-[50px]">
-              Browse all learning paths
-            </Button>
+          <div className="flex max-w-[720px] flex-col gap-5">
+            <Eyebrow>Built for future professionals</Eyebrow>
+            <h2 className={H2}>Career tracks for every level.</h2>
           </div>
 
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 desk:grid-cols-3">
             {TRACKS.map((track, i) => (
-              <Link
-                key={track.title}
-                href="/solutions#paths"
-                className={`flex flex-col justify-between gap-9 rounded-[26px] border border-transparent p-8 transition-colors hover:border-brand desk:gap-14 ${track.bg}`}
-              >
+              <div key={track.title} className={`flex flex-col justify-between gap-9 rounded-[26px] p-8 desk:gap-14 ${track.bg}`}>
                 <p className="text-[13px] font-semibold tracking-[1.4px] text-subtle">TRACK 0{i + 1}</p>
                 <div className="flex flex-col gap-2.5">
                   <h3 className="text-[30px] font-semibold tracking-[-0.02em]">{track.title}</h3>
                   <p className="text-base leading-[1.55] text-muted">{track.text}</p>
                 </div>
-              </Link>
+              </div>
             ))}
             <div className="flex flex-col justify-between gap-9 rounded-[26px] bg-ink p-8 text-white desk:gap-14">
               <p className="text-[13px] font-semibold tracking-[1.4px] text-periwinkle">NEXT</p>
@@ -199,40 +190,14 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-6 rounded-[28px] bg-white p-6 text-ink desk:p-9">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <IllustrativeBadge />
-              <p className="text-sm text-subtle">Posted directly on Mishka</p>
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <p className="text-[30px] leading-[1.1] font-semibold tracking-[-0.03em]">Junior Product Designer</p>
-              <p className="text-base text-muted">Helsinki-area employer</p>
-            </div>
-            <div className="flex items-center gap-5 border-y border-line py-5">
-              <p className="text-[60px] leading-none font-semibold text-brand">92%</p>
-              <p className="text-[17px] leading-[1.3] font-semibold">
-                fit for your profile,
-                <br />
-                <span className="font-semibold text-muted">based on skills you have proven</span>
-              </p>
-            </div>
-            <ul className="flex flex-col gap-3 text-base">
-              {["Product Design path: 4 of 4 courses", "Practice project: 9/10", "Final test: 100%"].map((item) => (
-                <li key={item} className="flex items-center gap-3">
-                  <CheckIcon className="text-brand" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="rounded-[40px] bg-brand p-[15px] text-center text-base font-semibold text-white">Apply with your Mishka profile</p>
-          </div>
+          <JobMatchCard />
         </div>
       </section>
 
       {/* ── Final CTA ────────────────────────────────────────────────────── */}
       <section id="get-started">
         <div className={`${CONTAINER} py-16 desk:py-28`}>
-          <div className="grid grid-cols-1 items-center gap-8 rounded-[32px] border border-line bg-white px-[22px] py-8 desk:grid-cols-2 desk:gap-14 desk:rounded-[40px] desk:p-16">
+          <div className="rounded-[32px] border border-line bg-white px-[22px] py-8 desk:rounded-[40px] desk:p-16">
             <div className="flex flex-col gap-6">
               <h2 className="text-[34px] leading-none font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(38px,4.2vw,56px)]">
                 Build skills. <span className="text-brand">Shape your future.</span>
@@ -269,16 +234,6 @@ export default function LandingPage() {
                   Open on the web
                 </TrackedLink>
               </div>
-            </div>
-            <div className="flex justify-center rounded-[28px] bg-mist p-8">
-              <Image
-                src="/images/mishka-cat-monitor.jpg"
-                alt="Mishka the cat sitting on top of a retro computer monitor"
-                width={1093}
-                height={1504}
-                sizes="380px"
-                className="block h-auto w-full max-w-[380px] rounded-2xl object-contain"
-              />
             </div>
           </div>
         </div>

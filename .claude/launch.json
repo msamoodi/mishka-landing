@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mishka-landing",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev", "-p", "5050"],
+      "port": 5050
+    }
+  ]
+}

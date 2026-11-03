@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
+import ScrollReveal from "@/components/ScrollReveal"
 import { DESCRIPTION, KEYWORDS, SITE_NAME, SITE_URL, TITLE } from "@/lib/seo"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Navbar />
         {children}
+        <ScrollReveal />
         <Script id="clarity-script" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
