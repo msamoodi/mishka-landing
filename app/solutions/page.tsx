@@ -1,7 +1,8 @@
 import Image from "next/image"
 import type { ReactNode } from "react"
 import Footer from "@/components/Footer"
-import { Badge, Button, CheckIcon, CONTAINER, DotList, Eyebrow, IllustrativeBadge } from "@/components/ui"
+import TeamOverviewCard from "@/components/TeamOverviewCard"
+import { Badge, Button, CheckIcon, CONTAINER, DotList, Eyebrow } from "@/components/ui"
 import { EARLY_ACCESS_URL } from "@/lib/links"
 import { pageMetadata } from "@/lib/seo"
 
@@ -41,12 +42,6 @@ const TEAM_POINTS: { title: string; text: string; next?: boolean }[] = [
   { title: "Team dashboards.", text: "See enrolments, progress and completions in one place." },
   { title: "Assessed on real work.", text: "Practice projects reviewed and scored, not just quizzes." },
   { title: "Vacancies matched to proof.", text: "Post roles and meet pre-qualified talent.", next: true },
-]
-
-const TEAM_PATHS = [
-  { label: "Product Design path", width: "72%" },
-  { label: "Digital Marketing path", width: "48%" },
-  { label: "Data & AI Literacy path", width: "30%" },
 ]
 
 export default function SolutionsPage() {
@@ -241,38 +236,7 @@ export default function SolutionsPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-5 rounded-[26px] bg-white p-[22px] text-ink desk:gap-[22px] desk:rounded-[28px] desk:p-8">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="text-[17px] font-semibold">Team overview</p>
-              <IllustrativeBadge />
-            </div>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(130px,100%),1fr))] gap-3">
-              {[
-                { label: "Learners enrolled", value: "[00]" },
-                { label: "Avg. progress", value: "[00%]", accent: true },
-                { label: "Certificates", value: "[00]" },
-              ].map((stat) => (
-                <div key={stat.label} className="flex flex-col gap-1 rounded-[18px] bg-canvas p-[18px]">
-                  <p className="text-[13px] text-subtle">{stat.label}</p>
-                  <p className={`text-[30px] font-semibold tracking-[-0.03em] ${stat.accent ? "text-brand" : ""}`}>{stat.value}</p>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col gap-4">
-              {TEAM_PATHS.map((path) => (
-                <div key={path.label} className="flex flex-col gap-2">
-                  <div className="flex justify-between text-[15px] font-medium">
-                    <span>{path.label}</span>
-                    <span className="text-subtle">[00%]</span>
-                  </div>
-                  <div className="h-2.5 rounded-[5px] bg-lavender">
-                    <div className="h-2.5 rounded-[5px] bg-brand" style={{ width: path.width }} />
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm leading-normal text-subtle">Sample layout with placeholder figures.</p>
-          </div>
+          <TeamOverviewCard />
         </div>
       </section>
 

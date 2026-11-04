@@ -50,15 +50,15 @@ export default function AboutPage() {
               Mishka is an AI-powered learning platform for practical, job-ready digital skills. We are building it for lifelong learners who want a clear path from learning to a real role.
             </p>
           </div>
-          <div className="rounded-[32px] border border-line bg-white p-6">
+          <div className="overflow-hidden rounded-[32px] border border-line bg-white px-6 pt-6">
             <Image
-              src="/images/mishka-cat.jpg"
-              alt="Mishka, our grumpy cat mascot"
-              width={1151}
-              height={1288}
+              src="/images/about-hero.webp"
+              alt="A smiling young man using the Mishka app on his phone, surrounded by small learning icons"
+              width={1556}
+              height={1427}
               sizes="(min-width: 901px) 500px, 100vw"
               priority
-              className="block h-auto max-h-[420px] w-full object-contain"
+              className="block h-auto max-h-[420px] w-full object-contain object-bottom"
             />
           </div>
         </div>
