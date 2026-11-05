@@ -29,7 +29,7 @@ const TEAM = [
   {
     name: "Samira Qayoumi",
     role: "CO-FOUNDER · CPO",
-    image: "/images/team-samira-qayoumi.jpg",
+    image: "/images/team-samira-qayoumi.png",
     bg: "bg-butter",
     bio: "Product expert with experience across fintech, logistics and digital platforms, specializing in product strategy and growth. At Mishka, focuses on product-market fit and growth by translating market insights and user feedback into improvements that increase adoption, engagement and success.",
   },
