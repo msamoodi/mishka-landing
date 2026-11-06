@@ -4,13 +4,13 @@ import { useState } from "react"
 import TypingText from "./TypingText"
 import { CheckIcon, IllustrativeBadge } from "./ui"
 
-const JOBS = [
+export const JOBS = [
   { title: "Junior Product Designer", path: "Product Design", fit: 92, project: 9, test: 100 },
   { title: "Senior UX Researcher", path: "UX Research", fit: 88, project: 8, test: 94 },
   { title: "Mid-Level Digital Marketer", path: "Digital Marketing", fit: 95, project: 9, test: 96 },
 ]
 
-const TITLES = JOBS.map((job) => job.title)
+export const JOB_TITLES = JOBS.map((job) => job.title)
 
 export default function JobMatchCard() {
   const [index, setIndex] = useState(0)
@@ -24,7 +24,7 @@ export default function JobMatchCard() {
       </div>
       <div className="flex flex-col gap-1.5">
         <p className="text-[30px] leading-[1.1] font-semibold tracking-[-0.03em]">
-          <TypingText phrases={TITLES} onPhraseChange={setIndex} />
+          <TypingText phrases={JOB_TITLES} onPhraseChange={setIndex} />
         </p>
         <p className="text-base text-muted">Helsinki-area employer</p>
       </div>

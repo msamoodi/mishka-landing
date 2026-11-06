@@ -1,11 +1,13 @@
+import EmployerFitCard from "@/components/EmployerFitCard"
 import Footer from "@/components/Footer"
-import { Button, CheckIcon, CONTAINER, DarkCta, DotList, Eyebrow, IllustrativeBadge, NumberedColumns } from "@/components/ui"
-import { pageMetadata } from "@/lib/seo"
+import JsonLd from "@/components/JsonLd"
+import { Button, CONTAINER, DarkCta, DotList, Eyebrow, NumberedColumns } from "@/components/ui"
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo"
 
 export const metadata = pageMetadata(
   "/employers",
-  "For Employers",
-  "Hire people who have proven it. Upskill your team with Mishka and become a pilot partner for employer matching based on verified skills and real project work.",
+  "Upskill Your Team & Hire Verified Talent — Mishka",
+  "Upskill your team with structured learning paths and progress dashboards, and join the pilot to hire candidates matched on proven skills and real project work.",
 )
 
 const H2 = "text-[28px] leading-[1.08] font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(30px,3.6vw,48px)]"
@@ -42,28 +44,7 @@ export default function EmployersPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-[22px] rounded-[28px] bg-white p-6 text-ink desk:p-8">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <IllustrativeBadge />
-              <p className="text-sm text-subtle">Candidate view</p>
-            </div>
-            <div className="flex flex-wrap items-center gap-5">
-              <p className="text-[68px] leading-none font-semibold tracking-[-0.04em] text-brand">92%</p>
-              <p className="text-[17px] leading-[1.3] font-semibold">
-                fit for Junior Product Designer
-                <br />
-                <span className="font-normal text-muted">scored on proven skills</span>
-              </p>
-            </div>
-            <ul className="flex flex-col gap-3 border-t border-line pt-[18px] text-base">
-              {["Product Design path: 4 of 4 courses", "Practice project: 9/10", "Final test: 100%", "Mishka certificate earned"].map((item) => (
-                <li key={item} className="flex items-center gap-3">
-                  <CheckIcon className="text-brand" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <EmployerFitCard />
         </div>
       </section>
 
@@ -128,6 +109,7 @@ export default function EmployersPage() {
       </DarkCta>
 
       <Footer />
+      <JsonLd data={breadcrumbJsonLd("/employers", "For Employers")} />
     </main>
   )
 }

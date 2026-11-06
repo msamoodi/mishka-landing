@@ -1,12 +1,13 @@
 import ContactForm from "@/components/ContactForm"
 import Footer from "@/components/Footer"
+import JsonLd from "@/components/JsonLd"
 import { CONTAINER, Eyebrow, FaqList } from "@/components/ui"
-import { pageMetadata } from "@/lib/seo"
+import { breadcrumbJsonLd, faqJsonLd, pageMetadata } from "@/lib/seo"
 
 export const metadata = pageMetadata(
   "/contact",
-  "Contact",
-  "Questions about Mishka, team plans or becoming an employer partner? Write to us at info@mishkaapp.com and we will reply personally.",
+  "Contact Mishka — Teams, Partnerships & Support",
+  "Questions about Mishka, team plans or becoming an employer partner? Email info@mishkaapp.com and we will reply to you personally.",
 )
 
 const FAQS = [
@@ -53,6 +54,8 @@ export default function ContactPage() {
       <div aria-hidden className="h-24" />
 
       <Footer />
+      <JsonLd data={breadcrumbJsonLd("/contact", "Contact")} />
+      <JsonLd data={faqJsonLd(FAQS)} />
     </main>
   )
 }

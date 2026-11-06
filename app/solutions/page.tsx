@@ -1,15 +1,16 @@
 import Image from "next/image"
 import type { ReactNode } from "react"
 import Footer from "@/components/Footer"
+import JsonLd from "@/components/JsonLd"
 import TeamOverviewCard from "@/components/TeamOverviewCard"
 import { Badge, Button, CheckIcon, CONTAINER, DotList, Eyebrow } from "@/components/ui"
 import { EARLY_ACCESS_URL } from "@/lib/links"
-import { pageMetadata } from "@/lib/seo"
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo"
 
 export const metadata = pageMetadata(
   "/solutions",
-  "Solutions",
-  "One platform for learning, proof and your next job. Structured learning paths, an AI coach, and certificates backed by real project work, for individuals and teams.",
+  "AI Learning Paths, Coaching & Certificates — Mishka",
+  "Structured learning paths, an AI coach in every lesson and certificates backed by reviewed projects. Mishka takes individuals and teams from learning to proof.",
 )
 
 const SCREEN = { width: 300, height: 654, sizes: "(min-width: 901px) 320px, 72vw" }
@@ -281,6 +282,7 @@ export default function SolutionsPage() {
           ],
         }}
       />
+      <JsonLd data={breadcrumbJsonLd("/solutions", "Solutions")} />
     </main>
   )
 }

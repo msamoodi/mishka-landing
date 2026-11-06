@@ -10,9 +10,11 @@ const GAP_MS = 300
 export default function TypingText({
   phrases,
   onPhraseChange,
+  className = "grid",
 }: {
   phrases: string[]
   onPhraseChange?: (index: number) => void
+  className?: string
 }) {
   const [index, setIndex] = useState(0)
   const [length, setLength] = useState(phrases[0].length)
@@ -40,7 +42,7 @@ export default function TypingText({
   }, [phrases, onPhraseChange, index, length, deleting])
 
   return (
-    <span className="grid">
+    <span className={className}>
       <span className="sr-only">{phrases[index]}</span>
       {/* The longest phrase holds the height, so the card doesn't jump as the text changes. */}
       {phrases.map((phrase) => (

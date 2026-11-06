@@ -1,13 +1,14 @@
 import Image from "next/image"
 import Footer from "@/components/Footer"
+import JsonLd from "@/components/JsonLd"
 import { Button, CONTAINER, DarkCta, Eyebrow, NumberedColumns } from "@/components/ui"
 import { EARLY_ACCESS_URL } from "@/lib/links"
-import { pageMetadata } from "@/lib/seo"
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo"
 
 export const metadata = pageMetadata(
   "/about",
-  "About",
-  "Mishka is an AI-powered learning platform for practical, job-ready digital skills, built for lifelong learners who want a clear path from learning to a real role.",
+  "About Mishka — AI-Powered Learning for Digital Careers",
+  "Mishka is an AI-powered platform for practical, job-ready digital skills, built for lifelong learners who want a clear path from learning to a real role.",
 )
 
 const H2 = "text-[28px] leading-[1.08] font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(30px,3.6vw,48px)]"
@@ -102,6 +103,7 @@ export default function AboutPage() {
       </DarkCta>
 
       <Footer />
+      <JsonLd data={breadcrumbJsonLd("/about", "About")} />
     </main>
   )
 }

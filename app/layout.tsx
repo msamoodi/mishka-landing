@@ -2,9 +2,10 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
+import JsonLd from "@/components/JsonLd"
 import Navbar from "@/components/Navbar"
 import ScrollReveal from "@/components/ScrollReveal"
-import { DESCRIPTION, KEYWORDS, SITE_NAME, SITE_URL, TITLE } from "@/lib/seo"
+import { DESCRIPTION, KEYWORDS, SITE_JSON_LD, SITE_NAME, SITE_URL, TITLE } from "@/lib/seo"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
@@ -61,19 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })(window, document, "clarity", "script", "xy1nt5u87n");
           `}
         </Script>
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "EducationalOrganization",
-              name: SITE_NAME,
-              url: SITE_URL,
-              description: DESCRIPTION,
-            }),
-          }}
-        />
+        <JsonLd data={SITE_JSON_LD} />
       </body>
     </html>
   )

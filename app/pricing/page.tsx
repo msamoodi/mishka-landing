@@ -1,13 +1,14 @@
 import Footer from "@/components/Footer"
+import JsonLd from "@/components/JsonLd"
 import PricingPlans from "@/components/PricingPlans"
 import { Button, CONTAINER, DarkCta, Eyebrow, FaqList } from "@/components/ui"
 import { EARLY_ACCESS_URL } from "@/lib/links"
-import { pageMetadata } from "@/lib/seo"
+import { breadcrumbJsonLd, faqJsonLd, pageMetadata } from "@/lib/seo"
 
 export const metadata = pageMetadata(
   "/pricing",
-  "Pricing",
-  "Simple Mishka plans. Start with three days of full access for free, then choose Pro for individuals or Teams for companies upskilling groups of 20 or more.",
+  "Pricing: Pro & Teams Plans, 3 Days Free — Mishka",
+  "Start with 3 days of full access for free. Then choose Pro for individuals or Teams for companies upskilling 20 or more people, with certificates included.",
 )
 
 const FAQS = [
@@ -57,6 +58,8 @@ export default function PricingPage() {
       </DarkCta>
 
       <Footer />
+      <JsonLd data={breadcrumbJsonLd("/pricing", "Pricing")} />
+      <JsonLd data={faqJsonLd(FAQS)} />
     </main>
   )
 }
