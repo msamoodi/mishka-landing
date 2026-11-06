@@ -25,7 +25,7 @@ export default function ContactPage() {
         <div className={`${CONTAINER} grid grid-cols-1 items-start gap-8 py-16 desk:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] desk:gap-16 desk:pt-24 desk:pb-28`}>
           <div className="flex flex-col gap-7">
             <Eyebrow rule>Contact</Eyebrow>
-            <h1 className="text-4xl leading-[1.05] font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(36px,4.6vw,60px)]">Let us talk.</h1>
+            <h1 className="text-4xl leading-[1.05] font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(36px,4.6vw,60px)]">Let&apos;s talk</h1>
             <p className="max-w-[480px] text-xl leading-[1.6] text-muted">
               Questions about Mishka, team plans or becoming an employer partner? Write to us and we will reply personally.
             </p>
