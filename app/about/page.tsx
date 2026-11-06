@@ -40,8 +40,8 @@ export default function AboutPage() {
     <main>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section>
-        <div className={`${CONTAINER} grid grid-cols-1 items-center gap-8 py-16 desk:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] desk:gap-16 desk:pt-24 desk:pb-[104px]`}>
-          <div className="flex flex-col gap-7">
+        <div className={`${CONTAINER} py-16 desk:pt-24 desk:pb-[104px]`}>
+          <div className="flex max-w-[860px] flex-col gap-7">
             <Eyebrow rule>About Mishka</Eyebrow>
             <h1 className="text-4xl leading-[1.05] font-semibold tracking-[-0.03em] text-balance desk:text-[clamp(36px,4.6vw,64px)]">
               Learning that ends in proof, not just a certificate of attendance.
@@ -49,17 +49,6 @@ export default function AboutPage() {
             <p className="max-w-[600px] text-xl leading-[1.6] text-muted">
               Mishka is an AI-powered learning platform for practical, job-ready digital skills. We are building it for lifelong learners who want a clear path from learning to a real role.
             </p>
-          </div>
-          <div className="overflow-hidden rounded-[32px] border border-line bg-white px-6 pt-6">
-            <Image
-              src="/images/about-hero.webp"
-              alt="A smiling young man using the Mishka app on his phone, surrounded by small learning icons"
-              width={1556}
-              height={1427}
-              sizes="(min-width: 901px) 500px, 100vw"
-              priority
-              className="block h-auto max-h-[420px] w-full object-contain object-bottom"
-            />
           </div>
         </div>
       </section>
