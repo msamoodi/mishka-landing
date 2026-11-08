@@ -47,6 +47,9 @@ summary:focus-visible {
   outline-offset: 3px;
 }
 
+/* Stop the page scrolling behind an open modal. */
+html:has(dialog[open]) { overflow: hidden; }
+
 summary { list-style: none; cursor: pointer; }
 summary::-webkit-details-marker { display: none; }
 

@@ -43,32 +43,36 @@ const BUTTON_VARIANTS = {
   ink: "bg-ink text-white",
 }
 
-export function Button({
-  href,
-  children,
-  variant = "primary",
-  size = "lg",
-  fluid = true,
-  clarityEvent,
-  className = "",
-}: {
-  href: string
-  children: ReactNode
+export type ButtonStyle = {
   variant?: keyof typeof BUTTON_VARIANTS
   size?: "sm" | "md" | "lg"
   /** Full width on phones, sized to its label from the `sm` breakpoint up. */
   fluid?: boolean
-  clarityEvent?: string
   className?: string
-}) {
+}
+
+export function buttonClasses({ variant = "primary", size = "lg", fluid = true, className = "" }: ButtonStyle) {
   const sizing = {
     sm: "min-h-12 px-6 text-base",
     md: "min-h-[52px] px-7 text-base",
     lg: "min-h-[54px] px-7 text-[17px]",
   }[size]
-  const classes = `items-center justify-center gap-2.5 rounded-[40px] font-semibold transition-colors ${
+  return `items-center justify-center gap-2.5 rounded-[40px] font-semibold transition-colors ${
     fluid ? "flex w-full sm:inline-flex sm:w-auto" : "inline-flex"
   } ${sizing} ${BUTTON_VARIANTS[variant]} ${className}`
+}
+
+export function Button({
+  href,
+  children,
+  clarityEvent,
+  ...style
+}: ButtonStyle & {
+  href: string
+  children: ReactNode
+  clarityEvent?: string
+}) {
+  const classes = buttonClasses(style)
 
   if (href.startsWith("/") || href.startsWith("#")) {
     return (
